@@ -10,7 +10,7 @@
         margin: 5px;
         text-align: left;
     }
-    input[type=text], input[type=password], select {
+    input[type=text], input[type=password], input[type=email], input[type=date] select {
         display: inline-block;
         width: 200px;
     }
@@ -33,9 +33,27 @@
 		<label>Full name :</label>
 		<input type="text" th:field="*{name}" /> <br/>
 		<label>E-mail :</label>
-		<input type="text" th:field="*{email}"/> <br/>
+		<input type="email" th:field="*{email}"/> <br/>
 		<label>Password :</label>
 		<input type="password" th:field="*{password}"/> <br/>
+		<label>Birth Date :</label>
+		<input type="date" th:field="*{birthDate}"/> <br/>
+		<label>Gender :</label>
+		<input type="radio" th:field="*{gender}" value="Male"/> Male 
+		<input type="radio" th:field="*{gender}" value="Female"/> Female<br/>
+		
+		<label>Married ? :</label>
+		<input type="checkbox" th:field="*{married}"/> <br/>
+		
+		<label>Profession :</label>
+		<select th:field="*{profession}">
+		<option th:each=" prof: ${T(de.tekup.vue.dto.models.Profession).values()}"
+		th:value = "${prof.displayValue}"  th:text = "${prof.displayValue}">
+		</option>
+		</select> <br/>
+		
+		<label>Note :</label>
+		<textarea rows="5" cols="25" th:field="*{note}"></textarea> <br/>
 		
 		<button type="submit"> Register </button>
 		</form>
