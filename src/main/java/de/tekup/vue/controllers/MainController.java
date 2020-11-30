@@ -13,8 +13,8 @@ public class MainController {
 	
 	@GetMapping("/register")
 	public String showForm(Model model) {
-		User user = new User();
-		model.addAttribute("user", user);
+		User u = new User();
+		model.addAttribute("user", u);
 		return "register_form";
 	}
 	
